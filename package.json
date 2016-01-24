@@ -1,0 +1,12 @@
+{
+  "name": "CookieTest",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native start"
+  },
+  "dependencies": {
+    "react-native": "^0.18.1",
+    "react-native-cookies": "https://github.com/Psykar/react-native-cookies/tarball/master"
+  }
+}
