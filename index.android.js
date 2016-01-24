@@ -11,8 +11,13 @@ import React, {
   View
 } from 'react-native';
 
+import CookieManager from 'react-native-cookies';
+
 class CookieTest extends Component {
   render() {
+      CookieManager.getCookieHeader('http://example.com', (res) => {
+              console.log("result");
+              });
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
