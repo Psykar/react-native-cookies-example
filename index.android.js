@@ -15,9 +15,23 @@ import CookieManager from 'react-native-cookies';
 
 class CookieTest extends Component {
   render() {
-      CookieManager.getCookieHeader('http://example.com', (res) => {
-              console.log("result");
-              });
+    let url = 'example.com';
+    CookieManager.get(url, (result) => {
+      console.log("get cookie", result);
+      CookieManager.setFromResponse(url, 'i want a cookie', (set_result) => {
+        console.log("Set cookie", set_result);
+        CookieManager.get(url, (new_result) => {
+          console.log("get cookie after setting", new_result);
+          console.log("CLEARING");
+          CookieManager.clearAll((result) => {
+            console.log("Cleared", result);
+            CookieManager.get(url, (final_result) => {
+              console.log("After clearing...", final_result);
+            });
+          });
+        });
+      });
+    });
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
